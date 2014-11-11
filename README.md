@@ -16,7 +16,7 @@ $apache_hosts         = $apache_config_parser->getApacheHosts();
 echo'<pre>';print_r($apache_hosts);echo'</pre>';
 ```
 
-Resilt
+Result
 
 ```html
 Array (
