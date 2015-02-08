@@ -1,4 +1,4 @@
-apache_config_parser
+Apache config parser
 ====================
 
 Parse apache config
