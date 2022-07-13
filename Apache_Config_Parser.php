@@ -106,8 +106,9 @@ class Apache_Config_Parser {
                 $include = $matches[3];
 
                 if ( ! empty($include)) {
+                    $pre_include = strlen($include) - 1;
                     //  Папка с путем от корня
-                    if ($include{0} == '/' && $include{strlen($include) - 1} == '/') {
+                    if ($include[0] == '/' && $include[$pre_include] == '/') {
 
                         $configs = $this->getConfigs($include);
                         $content = '';
@@ -121,7 +122,8 @@ class Apache_Config_Parser {
 
 
                     // Файл с путем от корня
-                    } elseif ($include{0} == '/') {
+                    }
+                    elseif ($include[0] == '/') {
 
                         $star_pos = strpos($include, '*');
                         if ($star_pos !== false) {
@@ -151,7 +153,8 @@ class Apache_Config_Parser {
 
 
                     // Папка с путем от текущей директории
-                    } elseif ($include{strlen($include) - 1} == '/') {
+                    }
+                    elseif ($include[$pre_include] == '/') {
                         $configs = $this->getConfigs($config_dir . '/' . substr($include, 0, -1));
                         $content = '';
                         if ( ! empty($configs)) {
